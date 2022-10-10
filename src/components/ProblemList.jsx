@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from '../styles/main.module.css';
 
 const ProblemList = () => {
 	const problems = [
@@ -29,15 +30,17 @@ const ProblemList = () => {
 	];
 
 	return (
-		<div className='list-container'>
+		<div className='listContainer'>
 			{problems.map((problem) => {
 				return (
-					<div className='details'>
-						<div className='name-card'>{problem['name']}</div>
-						<div className='difficulty-card'>
+					<div className={classes.problemPane}>
+						<div className={classes.nameCard}>{problem['name']}</div>
+						<div className={classes.difficultyCard}>
 							{problem['difficulty']}
 						</div>
-						<div className='ref-card'>{problem['reference']}</div>
+						<div className={classes.refCard}>
+							<a href={problem['reference']}>Refer This</a>
+						</div>
 					</div>
 				);
 			})}

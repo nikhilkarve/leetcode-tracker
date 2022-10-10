@@ -1,0 +1,32 @@
+.main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.para {
+	font-size: 12px;
+	padding: 10px;
+}
+
+.listContainer {
+	margin-top: 10%;
+}
+
+.problemPane {
+	padding: 5px;
+	display: flex;
+	flex-direction: row;
+	background-color: rgba(226, 102, 57, 0.979);
+	margin: 12px;
+	border-radius: 10px;
+}
+
+.nameCard,
+.refCard,
+.difficultyCard {
+	margin: 0px 20px;
+	font-size: 18px;
+}
