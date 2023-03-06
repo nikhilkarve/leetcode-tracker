@@ -6,6 +6,20 @@
 	width: 100%;
 }
 
+.addBox {
+	width: 500px;
+}
+
+.addBox input {
+	padding: 7px;
+	margin-bottom: 7px;
+}
+
+.addBox form {
+	display: flex;
+	flex-direction: column;
+}
+
 .para {
 	font-size: 12px;
 	padding: 10px;
@@ -21,7 +35,7 @@
 	flex-direction: row;
 	background-color: rgba(226, 102, 57, 0.979);
 	margin: 12px;
-	border-radius: 10px;
+	color: rgb(241, 241, 241);
 }
 
 .nameCard,
@@ -29,4 +43,26 @@
 .difficultyCard {
 	margin: 0px 20px;
 	font-size: 18px;
+}
+
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th,
+td {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 20px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+
+button {
+	padding: 7px;
+	margin-bottom: 7px;
 }

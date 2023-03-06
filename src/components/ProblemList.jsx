@@ -1,49 +1,73 @@
 import React from 'react';
 import classes from '../styles/main.module.css';
+import { useState } from 'react';
+import myData from '../resources/problem-data.json';
+const ProblemList = (props) => {
+	console.log(myData);
+	const [checked, setChecked] = useState(false);
+	const problems = props.problems;
 
-const ProblemList = () => {
-	const problems = [
-		{
-			name: 'Two Sum',
-			link: 'https://leetcode.com/problems/two-sum/',
-			reference: 'https://www.youtube.com/watch?v=pblq-fj137A',
-			difficulty: 'Easy',
-		},
-		{
-			name: 'Two Sum',
-			link: 'https://leetcode.com/problems/two-sum/',
-			reference: 'https://www.youtube.com/watch?v=pblq-fj137A',
-			difficulty: 'Easy',
-		},
-		{
-			name: 'Two Sum',
-			link: 'https://leetcode.com/problems/two-sum/',
-			reference: 'https://www.youtube.com/watch?v=pblq-fj137A',
-			difficulty: 'Easy',
-		},
-		{
-			name: 'Two Sum',
-			link: 'https://leetcode.com/problems/two-sum/',
-			reference: 'https://www.youtube.com/watch?v=pblq-fj137A',
-			difficulty: 'Easy',
-		},
-	];
+	console.log(props.addThisProblem);
+	if (props.addThisProblem) {
+		console.log(problems.push(props.addThisProblem));
+	}
+
+	const handleChange = () => {
+		setChecked();
+	};
 
 	return (
 		<div className='listContainer'>
-			{problems.map((problem) => {
-				return (
-					<div className={classes.problemPane}>
-						<div className={classes.nameCard}>{problem['name']}</div>
-						<div className={classes.difficultyCard}>
-							{problem['difficulty']}
-						</div>
-						<div className={classes.refCard}>
-							<a href={problem['reference']}>Refer This</a>
-						</div>
-					</div>
-				);
-			})}
+			<table>
+				<tr>
+					<th>Name</th>
+					<th>Difficulty</th>
+					<th>Solution</th>
+					<th>Time Complexity</th>
+					<th>Notes</th>
+					<th>10 days</th>
+					<th>30 days</th>
+					<th>2 months</th>
+				</tr>
+				{problems.map((problem) => {
+					return (
+						<tr>
+							<td className={classes.nameCard}>{problem['name']}</td>
+							<td className={classes.difficultyCard}>
+								{problem['difficulty']}
+							</td>
+							<td className={classes.refCard}>
+								<a href={problem['reference']}>Refer This</a>
+							</td>
+							<td className={classes.refCard}>
+								{problem['timeComplexity']}
+							</td>
+							<td className={classes.refCard}>{problem['notes']}</td>
+							<td className={classes.refCard}>
+								<input
+									type='checkbox'
+									checked={checked}
+									onChange={handleChange}
+								/>
+							</td>
+							<td className={classes.refCard}>
+								<input
+									type='checkbox'
+									checked={checked}
+									onChange={handleChange}
+								/>
+							</td>
+							<td className={classes.refCard}>
+								<input
+									type='checkbox'
+									checked={checked}
+									onChange={handleChange}
+								/>
+							</td>
+						</tr>
+					);
+				})}
+			</table>
 		</div>
 	);
 };
