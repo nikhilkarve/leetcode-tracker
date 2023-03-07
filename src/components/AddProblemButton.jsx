@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import NewProblem from './NewProblem';
 import ProblemList from './ProblemList';
@@ -11,7 +11,42 @@ const AddProblemButton = () => {
 	};
 
 	const [addProblem, setAddProblem] = useState({});
-	const [problemList, setList] = useState(myData.problems);
+
+	const testObj = {
+		problems: [
+			// 	{
+			// 		name: 'Two Sum',
+			// 		link: 'https://leetcode.com/problems/two-sum/',
+			// 		reference: 'https://www.youtube.com/watch?v=pblq-fj137A',
+			// 		difficulty: 'Easy',
+			// 	},
+			// 	{
+			// 		name: 'Two Sum',
+			// 		link: 'https://leetcode.com/problems/two-sum/',
+			// 		reference: 'https://www.youtube.com/watch?v=pblq-fj137A',
+			// 		difficulty: 'Easy',
+			// 	},
+			// 	{
+			// 		name: 'Two Sum',
+			// 		link: 'https://leetcode.com/problems/two-sum/',
+			// 		reference: 'https://www.youtube.com/watch?v=pblq-fj137A',
+			// 		difficulty: 'Easy',
+			// 	},
+			// 	{
+			// 		name: 'Two Sum',
+			// 		link: 'https://leetcode.com/problems/two-sum/',
+			// 		reference: 'https://www.youtube.com/watch?v=pblq-fj137A',
+			// 		difficulty: 'Easy',
+			// 	},
+			//
+		],
+	};
+
+	let newObject = JSON.parse(window.localStorage.getItem('testObj'));
+
+	const [problemList, setList] = useState([]);
+
+	console.log(newObject);
 
 	if (newProblem)
 		return (

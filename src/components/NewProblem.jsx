@@ -23,8 +23,18 @@ export default function NewProblem(props) {
 		props.stateVar(false);
 		props.setAddProblem(state);
 		props.problemList.push(state);
+		let problemListLocal =
+			JSON.parse(window.localStorage.getItem('problemListLocal')) ||
+			[];
+		problemListLocal.push(props.problemList);
+		window.localStorage.setItem(
+			'problemListLocal',
+			JSON.stringify(problemListLocal)
+		);
+		// newObject.problems = props.problemList;
 		event.preventDefault();
 	};
+
 	return (
 		<div className={classes.addBox}>
 			<form onSubmit={handleSubmit}>
