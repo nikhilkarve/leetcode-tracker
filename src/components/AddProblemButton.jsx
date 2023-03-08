@@ -3,6 +3,7 @@ import { useState } from 'react';
 import NewProblem from './NewProblem';
 import ProblemList from './ProblemList';
 import myData from '../resources/problem-data.json';
+import classes from '../styles/main.module.css';
 
 const AddProblemButton = () => {
 	const [newProblem, setProblem] = useState(false);
@@ -64,7 +65,9 @@ const AddProblemButton = () => {
 	else {
 		return (
 			<div>
-				<button onClick={onSubmit}>Add Problem</button>
+				<div className={classes.btn}>
+					<button onClick={onSubmit}>Add Problem</button>
+				</div>
 				<ProblemList problems={problemList} />
 			</div>
 		);

@@ -8,6 +8,7 @@ export default function NewProblem(props) {
 		difficulty: '',
 		timeComplexity: '',
 		notes: '',
+		qType: '',
 	});
 
 	const handleChange = (event) => {
@@ -77,7 +78,17 @@ export default function NewProblem(props) {
 					placeholder='Notes'
 				/>
 
-				<input type='submit' value='Submit' />
+				<input
+					name='qType'
+					type='text'
+					value={state.qType}
+					onChange={handleChange}
+					placeholder='Type'
+				/>
+
+				<div className={classes.btnSubmit}>
+					<input type='submit' value='Submit' />
+				</div>
 			</form>
 		</div>
 	);

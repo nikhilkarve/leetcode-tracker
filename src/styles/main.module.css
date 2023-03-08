@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+body {
+	background-color: #082d48fd;
+	color: white;
+	font-family: 'Oswald', sans-serif;
+}
+
 .main {
 	display: flex;
 	flex-direction: column;
@@ -7,17 +14,27 @@
 }
 
 .addBox {
-	width: 500px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .addBox input {
 	padding: 7px;
 	margin-bottom: 7px;
+	/* width: 300px; */
 }
 
 .addBox form {
 	display: flex;
 	flex-direction: column;
+}
+
+.btnSubmit {
+	width: 318px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .para {
@@ -49,20 +66,43 @@ table {
 	font-family: arial, sans-serif;
 	border-collapse: collapse;
 	width: 100%;
+	margin-top: 10px;
+	box-shadow: 1px 1px 4px 4px #dcdcdc36;
 }
 
 th,
 td {
-	border: 1px solid #dddddd;
+	/* border: 1px solid #dddddd; */
 	text-align: left;
 	padding: 20px;
 }
 
-tr:nth-child(even) {
-	background-color: #dddddd;
+th {
+	background-color: #4691b4;
+}
+
+th:not(:last-child) {
+	border-right: 1px solid #dddddd4f;
+}
+
+tr {
+	background-color: #004f73;
 }
 
 button {
 	padding: 7px;
 	margin-bottom: 7px;
+	background-color: #004f73;
+	border: none;
+	width: 130px;
+	height: 40px;
+	color: white;
+	font-size: 17px;
+	font-family: 'Oswald';
+}
+
+.btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

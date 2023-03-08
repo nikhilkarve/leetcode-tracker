@@ -27,6 +27,7 @@ const ProblemList = (props) => {
 					<th>Solution</th>
 					<th>Time Complexity</th>
 					<th>Notes</th>
+					<th>Type</th>
 					<th>10 days</th>
 					<th>30 days</th>
 					<th>2 months</th>
@@ -50,6 +51,9 @@ const ProblemList = (props) => {
 							</td>
 							<td className={classes.refCard}>
 								{problem[0]['notes']}
+							</td>
+							<td className={classes.refCard}>
+								{problem[0]['qType']}
 							</td>
 							<td className={classes.refCard}>
 								<input
