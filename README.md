@@ -1,6 +1,6 @@
 # Interview Problems Tracker
 
-Building a leetcode problem tracker for personal use with React. Features currently include - 
+Building a interview problem tracker for personal use with React. Features currently include - 
 - Adding problem name, solution video, checkmarks for last solved(10 days, month, 2 months). 
 - Storing problem list in localStorage to not lose data when refreshing the page.
 
