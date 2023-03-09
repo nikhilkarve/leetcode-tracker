@@ -1,5 +1,7 @@
 # Interview Problems Tracker
 
+Note: If you think of any new feature, feel free to open an issue and submit your code. 
+
 Building a interview problem tracker for personal use with React. Features currently include - 
 - Adding problem name, solution video, checkmarks for last solved(10 days, month, 2 months). 
 - Storing problem list in localStorage to not lose data when refreshing the page.
