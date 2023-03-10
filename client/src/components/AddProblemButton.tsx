@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import NewProblem from './NewProblem';
 import ProblemList from './ProblemList';
-import myData from '../resources/problem-data.json';
 import classes from '../styles/main.module.css';
+import mockProblems from '../mocks/problem-data.json'
+import { ProblemListProps } from './ProblemList';
+
 
 const AddProblemButton = () => {
 	const [newProblem, setProblem] = useState(false);
@@ -43,11 +45,11 @@ const AddProblemButton = () => {
 		],
 	};
 
-	let newObject = JSON.parse(window.localStorage.getItem('testObj'));
+	// let newObject = JSON.parse(window.localStorage.getItem('testObj'));
 
 	const [problemList, setList] = useState([]);
 
-	console.log(newObject);
+	// console.log(newObject);
 
 	if (newProblem)
 		return (
@@ -58,8 +60,7 @@ const AddProblemButton = () => {
 					setList={setList}
 					problemList={problemList}
 				/>
-				<ProblemList problems={problemList} />
-				{console.log(addProblem)}
+				{/* {console.log(addProblem)} */}
 			</div>
 		);
 	else {
@@ -68,7 +69,7 @@ const AddProblemButton = () => {
 				<div className={classes.btn}>
 					<button onClick={onSubmit}>Add Problem</button>
 				</div>
-				<ProblemList problems={problemList} />
+				{/* <ProblemList problems={problemList} /> */}
 			</div>
 		);
 	}

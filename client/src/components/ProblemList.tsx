@@ -1,21 +1,35 @@
-import React from 'react';
 import classes from '../styles/main.module.css';
 import { useState } from 'react';
-import myData from '../resources/problem-data.json';
-const ProblemList = (props) => {
-	console.log(myData);
+import myData from '../mocks/problem-data.json'
+
+export interface ProblemProps {
+	name: string;
+	link: string;
+	reference: string;
+	difficulty: string;
+	timeComplexity?: string;
+	notes?: string;
+	type?: string;
+}
+
+export interface ProblemListProps {
+	problemsElements: ProblemProps[]
+}
+
+const ProblemList = ({problemsElements}:ProblemListProps) => {
 	const [checked, setChecked] = useState(false);
 	// const problems = props.problems;
-	let problems =
-		JSON.parse(window.localStorage.getItem('problemListLocal')) || [];
+	// let problems:ProblemProps[] = JSON.parse(window.localStorage.getItem('problemListLocal')!) || problemElements;
+	let problems = problemsElements;
+	problems.map((problem) => console.log(problem))
 
-	console.log(props.addThisProblem);
-	if (props.addThisProblem) {
-		console.log(problems.push(props.addThisProblem));
-	}
+	// console.log(props.addThisProblem);
+	// if (props.addThisProblem) {
+	// 	console.log(problems.push(props.addThisProblem));
+	// }
 
 	const handleChange = () => {
-		setChecked();
+		setChecked(!checked);
 	};
 
 	return (
@@ -33,27 +47,27 @@ const ProblemList = (props) => {
 					<th>2 months</th>
 					<th>Bookmark</th>
 				</tr>
+				
 				{problems.map((problem) => {
-					console.log(problem);
 					return (
 						<tr>
 							<td className={classes.nameCard}>
-								{problem[0]['name']}
+								{problem.name}
 							</td>
 							<td className={classes.difficultyCard}>
-								{problem[0]['difficulty']}
+								{problem.difficulty}
 							</td>
 							<td className={classes.refCard}>
-								<a href={problem[0]['reference']}>Refer This</a>
+								<a href={problem.reference}>Refer This</a>
 							</td>
 							<td className={classes.refCard}>
-								{problem[0]['timeComplexity']}
+								{problem.timeComplexity}
 							</td>
 							<td className={classes.refCard}>
-								{problem[0]['notes']}
+								{problem.notes}
 							</td>
 							<td className={classes.refCard}>
-								{problem[0]['qType']}
+								{problem.type}
 							</td>
 							<td className={classes.refCard}>
 								<input
