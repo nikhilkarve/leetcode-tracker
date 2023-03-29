@@ -1,78 +1,24 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
-import NewProblem from './NewProblem';
-import ProblemList from './ProblemList';
-import classes from '../styles/main.module.css';
-import mockProblems from '../mocks/problem-data.json'
-import { ProblemListProps } from './ProblemList';
-
+import { useState } from "react";
+import NewProblem from "./NewProblem";
+import classes from "../styles/main.module.css";
 
 const AddProblemButton = () => {
-	const [newProblem, setProblem] = useState(false);
-	const onSubmit = () => {
-		setProblem(!newProblem);
-	};
+  const [isAddingProblem, setIsAddingProblem] = useState(false);
+  const clickHandler = () => {
+    setIsAddingProblem(true);
+  };
 
-	const [addProblem, setAddProblem] = useState({});
-
-	const testObj = {
-		problems: [
-			// 	{
-			// 		name: 'Two Sum',
-			// 		link: 'https://leetcode.com/problems/two-sum/',
-			// 		reference: 'https://www.youtube.com/watch?v=pblq-fj137A',
-			// 		difficulty: 'Easy',
-			// 	},
-			// 	{
-			// 		name: 'Two Sum',
-			// 		link: 'https://leetcode.com/problems/two-sum/',
-			// 		reference: 'https://www.youtube.com/watch?v=pblq-fj137A',
-			// 		difficulty: 'Easy',
-			// 	},
-			// 	{
-			// 		name: 'Two Sum',
-			// 		link: 'https://leetcode.com/problems/two-sum/',
-			// 		reference: 'https://www.youtube.com/watch?v=pblq-fj137A',
-			// 		difficulty: 'Easy',
-			// 	},
-			// 	{
-			// 		name: 'Two Sum',
-			// 		link: 'https://leetcode.com/problems/two-sum/',
-			// 		reference: 'https://www.youtube.com/watch?v=pblq-fj137A',
-			// 		difficulty: 'Easy',
-			// 	},
-			//
-		],
-	};
-
-	// let newObject = JSON.parse(window.localStorage.getItem('testObj'));
-
-	const [problemList, setList] = useState([]);
-
-	// console.log(newObject);
-
-	if (newProblem)
-		return (
-			<div>
-				<NewProblem
-					stateVar={setProblem}
-					setAddProblem={setAddProblem}
-					setList={setList}
-					problemList={problemList}
-				/>
-				{/* {console.log(addProblem)} */}
-			</div>
-		);
-	else {
-		return (
-			<div>
-				<div className={classes.btn}>
-					<button onClick={onSubmit}>Add Problem</button>
-				</div>
-				{/* <ProblemList problems={problemList} /> */}
-			</div>
-		);
-	}
+  return isAddingProblem ? (
+    <div>
+      <NewProblem setIsAddingProblem={setIsAddingProblem} />
+    </div>
+  ) : (
+    <div>
+      <div className={classes.btn}>
+        <button onClick={clickHandler}>Add Problem</button>
+      </div>
+    </div>
+  );
 };
 
 export default AddProblemButton;

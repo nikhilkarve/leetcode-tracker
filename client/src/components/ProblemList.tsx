@@ -1,6 +1,7 @@
 import classes from '../styles/main.module.css';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import myData from '../mocks/problem-data.json'
+import { ProblemContext } from '../context/ProblemContext';
 
 export interface ProblemProps {
 	name: string;
@@ -12,22 +13,13 @@ export interface ProblemProps {
 	type?: string;
 }
 
-export interface ProblemListProps {
-	problemsElements: ProblemProps[]
-}
-
-const ProblemList = ({problemsElements}:ProblemListProps) => {
+const ProblemList = () => {
+	const {problemList, getProblemsFromLocalStorage} = useContext(ProblemContext)
+	useEffect(()=> {
+		getProblemsFromLocalStorage()
+	}, [])
 	const [checked, setChecked] = useState(false);
-	// const problems = props.problems;
-	// let problems:ProblemProps[] = JSON.parse(window.localStorage.getItem('problemListLocal')!) || problemElements;
-	let problems = problemsElements;
-	problems.map((problem) => console.log(problem))
-
-	// console.log(props.addThisProblem);
-	// if (props.addThisProblem) {
-	// 	console.log(problems.push(props.addThisProblem));
-	// }
-
+	let problems:ProblemProps[] = problemList;
 	const handleChange = () => {
 		setChecked(!checked);
 	};
