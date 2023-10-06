@@ -1,8 +1,6 @@
-import React from 'react';
-
 import classes from '../styles/main.module.css';
-
 import AddProblemButton from './AddProblemButton';
+import ProblemList from './ProblemList';
 
 const Dashboard = () => {
 	return (
@@ -13,6 +11,8 @@ const Dashboard = () => {
 				Here you can add the problems you solved. If you used any
 				reference you can also add that (video/article link).{' '}
 			</p>
+			<ProblemList />
+
 		</div>
 	);
 };
